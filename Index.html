@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Farhan Plumbing Service</title>
+  <style>
+    :root{
+      --accent: #0ea5a4;
+      --wa: #25d366;
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --text: #0f172a;
+      --muted: #64748b;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+      background:var(--bg); color:var(--text);
+    }
+    .wrap{max-width:1000px;margin:0 auto;padding:16px;}
+    header{background:var(--accent);color:white;padding:12px 0;}
+    header .wrap{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap}
+    .brand{display:flex;align-items:center;gap:10px;}
+    .brand img{width:70px;height:70px;border-radius:50%;object-fit:cover}
+    .brand h1{margin:0;font-size:20px}
+    .brand p{margin:0;font-size:13px}
+    .contact a{background:#25d366;color:white;padding:8px 12px;border-radius:8px;text-decoration:none;margin:4px;display:inline-block}
+    .card{background:var(--card);border-radius:10px;padding:16px;margin:14px 0;box-shadow:0 5px 15px rgba(0,0,0,0.05)}
+    h2,h3{margin-top:0}
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px}
+    .service{background:white;border-radius:10px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.08)}
+    .service img{width:100%;height:120px;object-fit:cover}
+    .service div{padding:8px}
+    .meta{display:flex;justify-content:space-between;font-size:14px;margin:4px 0;font-weight:bold}
+    details{font-size:13px;color:#555}
+    footer{background:#0f172a;color:white;text-align:center;padding:10px}
+    footer a{color:#25d366;text-decoration:none}
+    .owner{display:flex;align-items:center;gap:12px}
+    .owner img{width:80px;height:80px;border-radius:10px;object-fit:cover}
+    .map a{display:inline-block;background:#0ea5a4;color:white;padding:8px 12px;margin:4px;border-radius:8px;text-decoration:none}
+    .wa-float{position:fixed;bottom:16px;right:16px;background:#25d366;color:white;width:55px;height:55px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;text-decoration:none;box-shadow:0 5px 15px rgba(0,0,0,0.2);z-index:9999}
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="brand">
+      <img src="https://via.placeholder.com/70x70.png?text=Farhan" alt="Farhan Logo">
+      <div>
+        <h1>Farhan Plumbing Service</h1>
+        <p>Fast • Reliable • 1 Month Free Warranty</p>
+      </div>
+    </div>
+    <div class="contact">
+      <a href="tel:+919027608454">📞 Call</a>
+      <a href="https://wa.me/919027608454?text=Hello%2C%20mujhe%20plumber%20service%20chahiye">💬 WhatsApp</a>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="card">
+    <h2>24x7 Plumbing Service</h2>
+    <p>छोटी सर्विस ₹99 से शुरू — 1 महीने की फ्री वारंटी। We provide home service.</p>
+  </section>
+
+  <section class="card">
+    <h3>Our Services</h3>
+    <div class="grid" id="services"></div>
+  </section>
+
+  <section class="card">
+    <h3>Warranty & Locations</h3>
+    <p>हर सर्विस के साथ 1 महीने की फ्री वारंटी दी जाएगी। अगर सर्विस के बाद वही समस्या आए तो हम फ्री में रीवर्क करेंगे।</p>
+    <div class="map">
+      <a href="https://maps.app.goo.gl/vfkPzTTjASFkS3iy6">📍 Location 1</a>
+      <a href="https://maps.app.goo.gl/ajUgwx5joF5nz8Bd6">📍 Location 2</a>
+    </div>
+  </section>
+
+  <section class="card">
+    <h3>Owner</h3>
+    <div class="owner">
+      <img src="https://via.placeholder.com/80x80.png?text=Farhan" alt="Owner">
+      <div>
+        <strong>Farhan (Owner)</strong><br>
+        📞 <a href="tel:+919027608454">9027608454</a><br>
+        💬 <a href="https://wa.me/919027608454">WhatsApp Me</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h3>Add Team Member</h3>
+    <input type="text" id="mname" placeholder="Name" />
+    <input type="text" id="mphone" placeholder="Phone e.g. 9198..." />
+    <button onclick="addMember()">Add</button>
+    <div id="team"></div>
+  </section>
+</main>
+
+<footer>
+  <p>© 2025 Farhan Plumbing Service | Call: <a href="tel:+919027608454">9027608454</a></p>
+</footer>
+
+<a class="wa-float" href="https://wa.me/919027608454?text=Hello%2C%20mujhe%20plumber%20service%20chahiye">💬</a>
+
+<script>
+  const services = [
+    {name:"Tap Repair",price:99,time:"30 min"},
+    {name:"Pipe Leak Fix",price:149,time:"30 min"},
+    {name:"Drain Cleaning",price:129,time:"30 min"},
+    {name:"Toilet Unclog",price:99,time:"30 min"},
+    {name:"Filter Clean",price:129,time:"30 min"},
+    {name:"Valve Change",price:199,time:"45 min"},
+    {name:"Hand Shower Fix",price:149,time:"30 min"},
+    {name:"Leak Detector Service",price:249,time:"45 min"},
+    {name:"Tap Replacement",price:199,time:"45 min"},
+    {name:"Tap Cartridge Change",price:199,time:"40 min"},
+    {name:"Minor Fitting Repair",price:149,time:"30 min"},
+    {name:"Drain Odour Fix",price:149,time:"30 min"},
+    {name:"Geyser Minor Fix",price:299,time:"45 min"},
+    {name:"Tap Sealing",price:99,time:"20 min"},
+    {name:"Connection Tightening",price:99,time:"20 min"},
+    {name:"Tap Aerator Clean",price:99,time:"15 min"},
+    {name:"Pipe Insulation Small",price:129,time:"30 min"},
+    {name:"Bathroom Fitting",price:450,time:"2 hrs"},
+    {name:"Kitchen Sink Install",price:499,time:"2 hrs"},
+    {name:"Water Tank Cleaning",price:399,time:"1 hr"},
+    {name:"Pipeline Installation",price:650,time:"3 hrs"},
+    {name:"Water Pump Repair",price:599,time:"2 hrs"},
+    {name:"Tank Leak Repair",price:549,time:"2 hrs"},
+    {name:"Underground Pipe Repair",price:700,time:"3-4 hrs"},
+    {name:"Bathroom Renovation",price:800,time:"4-6 hrs"},
+    {name:"New Bathroom Setup",price:750,time:"5 hrs"},
+    {name:"Geyser Installation",price:499,time:"2 hrs"},
+    {name:"Water Heater Repair",price:450,time:"2 hrs"},
+    {name:"Pipeline Replacement",price:680,time:"3 hrs"},
+    {name:"Full Plumbing Inspection",price:399,time:"2 hrs"},
+    {name:"Sewer Line Repair",price:800,time:"4 hrs"},
+    {name:"Complete Re-piping",price:800,time:"5-8 hrs"},
+    {name:"Sink Block Removal",price:149,time:"30 min"},
+    {name:"Tap Filter Install",price:199,time:"30 min"},
+    {name:"Jet Spray Setup",price:249,time:"45 min"},
+    {name:"Bathroom Tap Set",price:350,time:"1 hr"},
+    {name:"Kitchen Pipe Clean",price:149,time:"30 min"},
+    {name:"Water Meter Install",price:499,time:"2 hrs"},
+    {name:"Pipe Leak Detection",price:249,time:"45 min"},
+    {name:"Pressure Pump Install",price:699,time:"2-3 hrs"}
+  ];
+
+  const grid = document.getElementById("services");
+  services.forEach(s=>{
+    const div=document.createElement("div");
+    div.className="service";
+    div.innerHTML=`
+      <img src="https://via.placeholder.com/400x250.png?text=${encodeURIComponent(s.name)}" alt="${s.name}">
+      <div>
+        <h4>${s.name}</h4>
+        <div class="meta"><span>₹${s.price}</span><span>${s.time}</span></div>
+        <details><summary>Details</summary><p>We provide home service. 1-month free warranty.</p></details>
+      </div>`;
+    grid.appendChild(div);
+  });
+
+  function addMember(){
+    const name=document.getElementById("mname").value.trim();
+    const phone=document.getElementById("mphone").value.trim();
+    if(!name||!phone)return alert("Please fill name & phone");
+    const team=document.getElementById("team");
+    const div=document.createElement("div");
+    div.innerHTML=`👷 ${name} — <a href="https://wa.me/${phone}" target="_blank">WhatsApp</a> | <a href="tel:+${phone}">Call</a>`;
+    team.appendChild(div);
+    document.getElementById("mname").value="";
+    document.getElementById("mphone").value="";
+  }
+</script>
+</body>
+</html>
